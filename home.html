@@ -33,10 +33,23 @@
 </section>
 
 <script>
-    // Toggle Menu for Mobile View
-    document.querySelector(".menu-toggle").addEventListener("click", function() {
-        document.querySelector(".nav-links").classList.toggle("active");
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const navItems = document.querySelectorAll(".nav-links a");
+
+      // Toggle the menu when clicking the menu button
+      menuToggle.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+      });
+
+      // Close the menu when clicking a navigation link
+      navItems.forEach(item => {
+          item.addEventListener("click", function () {
+              navLinks.classList.remove("active");
+          });
+      });
+  });
 </script>
 
   <section id="about" class="about">
